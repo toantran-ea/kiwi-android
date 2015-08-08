@@ -1,11 +1,12 @@
 package mobi.kiwi.kiwi;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends KiwiActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +30,15 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            openConfig();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openConfig() {
+        Intent intent = new Intent(this, ConfigActivity.class);
+        startActivity(intent);
     }
 }
