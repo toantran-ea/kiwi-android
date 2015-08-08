@@ -34,7 +34,7 @@ public class MainActivity extends KiwiActivity {
     protected void onResume() {
         super.onResume();
         cancelLocalNotification();
-        presetUI();
+        presentUI();
     }
 
     @Override
@@ -57,7 +57,6 @@ public class MainActivity extends KiwiActivity {
     }
 
     public void checkin(View view) {
-        Log.e(TAG, "Auto checkin!!");
         String random = Utils.getRandomInteger();
         String email = Utils.getOfficeEmail(this);
         String token = Utils.getToken(email, random);
@@ -66,7 +65,7 @@ public class MainActivity extends KiwiActivity {
             @Override
             public void success(CheckinResponse checkinResponse, Response response) {
                 Log.e(TAG, checkinResponse.toString());
-                presetUI();
+                presentUI();
             }
 
             @Override
@@ -92,7 +91,7 @@ public class MainActivity extends KiwiActivity {
     }
 
     @UiThread
-    private void presetUI() {
+    private void presentUI() {
         TextView lastCheckinTextView = (TextView) findViewById(R.id.last_checkin_text_view);
         lastCheckinTextView.setText(PrefUtils.getConfig(Constants.LAST_CHECKIN_TIME, ""));
     }

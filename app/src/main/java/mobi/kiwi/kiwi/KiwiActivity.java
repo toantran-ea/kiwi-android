@@ -1,6 +1,8 @@
 package mobi.kiwi.kiwi;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 /**
@@ -15,6 +17,11 @@ public class KiwiActivity extends AppCompatActivity {
         }
         mToast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
         mToast.show();
+    }
+
+    protected void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
     }
 
 }

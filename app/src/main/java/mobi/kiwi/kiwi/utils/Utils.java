@@ -4,6 +4,7 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
@@ -108,6 +109,13 @@ public class Utils {
         // mId allows you to update the notification later on.
 
         mNotificationManager.notify(checkinTime.hashCode(), mBuilder.build());
+    }
+
+    public static ProgressDialog showProgressDialog(Context context, String message) {
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setMessage(message);
+        progressDialog.setCanceledOnTouchOutside(false);
+        return progressDialog;
     }
 }
 
