@@ -3,7 +3,6 @@ package mobi.kiwi.kiwi;
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,6 +11,8 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import mobi.kiwi.kiwi.utils.Constants;
 
 public class MainActivity extends KiwiActivity {
     private static String TAG = MainActivity.class.getSimpleName();
@@ -31,12 +32,8 @@ public class MainActivity extends KiwiActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             openConfig();
             return true;
@@ -46,8 +43,7 @@ public class MainActivity extends KiwiActivity {
     }
 
     public void checkin(View view) {
-        List<String> gmails = getAllGmails();
-        Log.e(TAG, gmails.toString());
+        Log.e(TAG,  getOfficeEmail());
     }
 
     private void openConfig() {
@@ -55,16 +51,13 @@ public class MainActivity extends KiwiActivity {
         startActivity(intent);
     }
 
-    private List<String> getAllGmails() {
+    private String getOfficeEmail() {
         AccountManager manager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
-        Account[] list = manager.getAccounts();
-        List<String> gmails = new ArrayList<>();
-
-        for (Account account : list) {
-            if (account.type.equalsIgnoreCase("com.google")) {
-                gmails.add(account.name);
+        for (Account account : manager.getAccounts()) {
+            if (account.type.equalsIgnoreCase(Constants.GOOGLE_ACCOUNT_TYPE) && account.name.contains(Constants.WORK_EMAIL_DOMAIN)) {
+                return account.name;
             }
         }
-        return gmails;
+        return "";
     }
 }
