@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Kiwi</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="text_check_in">Check in</string>
     <string name="text_last_checkin">Last check-in:</string>
@@ -16,4 +14,7 @@
     <string name="error_check_in_failed">Failed to check in now</string>
     <string name="error_no_checkin_server_found">"No checkin server found at "</string>
     <string name="message_validating_server">Validating server ...</string>
+    <string name="state_checked_in_well">Checked in well</string>
+    <string name="state_checking_in">Checking in ...</string>
+    <string name="failed_checking_in">Failed checking in</string>
 </resources>

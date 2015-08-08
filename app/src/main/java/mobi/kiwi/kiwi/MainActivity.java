@@ -11,6 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.dd.processbutton.ProcessButton;
+import com.dd.processbutton.iml.ActionProcessButton;
+
 import mobi.kiwi.kiwi.models.CheckinRequest;
 import mobi.kiwi.kiwi.models.CheckinResponse;
 import mobi.kiwi.kiwi.rest.KiwiAPI;
@@ -23,11 +26,14 @@ import retrofit.client.Response;
 
 public class MainActivity extends KiwiActivity {
     private static String TAG = MainActivity.class.getSimpleName();
+    private ActionProcessButton mCheckinButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initUI();
     }
 
     @Override
@@ -57,6 +63,7 @@ public class MainActivity extends KiwiActivity {
     }
 
     public void checkin(View view) {
+        mCheckinButton.setProgress(10);
         String random = Utils.getRandomInteger();
         String email = Utils.getOfficeEmail(this);
         String token = Utils.getToken(email, random);
@@ -66,11 +73,13 @@ public class MainActivity extends KiwiActivity {
             public void success(CheckinResponse checkinResponse, Response response) {
                 Log.e(TAG, checkinResponse.toString());
                 presentUI();
+                mCheckinButton.setProgress(100);
             }
 
             @Override
             public void failure(RetrofitError error) {
                 toastMessage(getString(R.string.error_check_in_failed));
+                mCheckinButton.setProgress(-1);
             }
 
         });
@@ -94,5 +103,10 @@ public class MainActivity extends KiwiActivity {
     private void presentUI() {
         TextView lastCheckinTextView = (TextView) findViewById(R.id.last_checkin_text_view);
         lastCheckinTextView.setText(PrefUtils.getConfig(Constants.LAST_CHECKIN_TIME, ""));
+    }
+
+    private void initUI() {
+        mCheckinButton = (ActionProcessButton) findViewById(R.id.checkin_button);
+        mCheckinButton.setMode(ActionProcessButton.Mode.ENDLESS);
     }
 }
