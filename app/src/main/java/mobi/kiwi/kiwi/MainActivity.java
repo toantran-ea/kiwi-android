@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.dd.processbutton.ProcessButton;
 import com.dd.processbutton.iml.ActionProcessButton;
 
 import mobi.kiwi.kiwi.models.CheckinRequest;
@@ -92,7 +91,7 @@ public class MainActivity extends KiwiActivity {
 
     private void cancelLocalNotification() {
         String lastCheckin = PrefUtils.getConfig(Constants.LAST_CHECKIN_TIME, "");
-        if(TextUtils.isEmpty(lastCheckin)) {
+        if (TextUtils.isEmpty(lastCheckin)) {
             return;
         }
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
