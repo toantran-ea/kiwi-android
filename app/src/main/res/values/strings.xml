@@ -11,4 +11,7 @@
     <string name="text_save">Save</string>
     <string name="error_invalid_server_address">Invalid server address</string>
     <string name="error_invalid_ssid">Invalid SSID</string>
+    <string name="server_prompt">192.168.4.44:3000</string>
+    <string name="ssid_prompt">East Agile F1</string>
+    <string name="error_check_in_failed">Failed to check in now</string>
 </resources>

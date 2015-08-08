@@ -16,4 +16,11 @@ public class CheckinResponse {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+    @Override
+    public String toString() {
+        return "CheckinResponse{" +
+                "timestamp='" + timestamp + '\'' +
+                '}';
+    }
 }

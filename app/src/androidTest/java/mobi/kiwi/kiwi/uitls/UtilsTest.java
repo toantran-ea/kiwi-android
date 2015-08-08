@@ -2,6 +2,9 @@ package mobi.kiwi.kiwi.uitls;
 
 import android.test.AndroidTestCase;
 
+import java.text.ParseException;
+import java.util.Calendar;
+
 import mobi.kiwi.kiwi.utils.Utils;
 
 /**
@@ -44,4 +47,20 @@ public class UtilsTest extends AndroidTestCase {
         }
     }
 
+    public void testGetToken() throws Exception {
+        String random = "29";
+        String expectedHash = "5ab1f6f32f0be8de850d787c8bd918ee063b208f89ec688e2fc4c275894a5213";
+        assertEquals(expectedHash, Utils.getToken("toan@google.com", random));
+    }
+
+    public void testGetOfficeEmail() throws Exception {
+//        String email  = Utils.getOfficeEmail(getContext());
+//        assertEquals("", email);
+    }
+
+    public void testGetCheckinTime() throws ParseException {
+        long nowTimestamp = (Calendar.getInstance().getTimeInMillis() / 1000) * 1000;
+        String checkinTime = Utils.getCheckinTime(String.valueOf(nowTimestamp));
+        assertNotNull(checkinTime);
+    }
 }

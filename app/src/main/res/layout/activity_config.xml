@@ -18,6 +18,7 @@
         android:layout_below="@id/server_ip_label"
         android:id="@+id/server_ip_edit_text"
         android:layout_width="fill_parent"
+        android:text="@string/server_prompt"
         android:layout_height="wrap_content"/>
 
     <TextView
@@ -31,6 +32,7 @@
     <EditText
         android:layout_below="@id/ssid_label"
         android:id="@+id/ssid_edit_text"
+        android:text="@string/ssid_prompt"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
 
