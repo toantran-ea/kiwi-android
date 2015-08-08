@@ -25,6 +25,7 @@
 
     <Button
         android:textSize="@dimen/checkin_button_text_size"
+        android:onClick="checkin"
         android:id="@+id/checkin_button"
         android:layout_width="wrap_content"
         android:padding="@dimen/button_padding"
