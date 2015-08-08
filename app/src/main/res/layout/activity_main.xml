@@ -27,6 +27,7 @@
         android:textSize="@dimen/checkin_button_text_size"
         android:id="@+id/checkin_button"
         android:layout_width="wrap_content"
+        android:padding="@dimen/button_padding"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/text_check_in"/>
