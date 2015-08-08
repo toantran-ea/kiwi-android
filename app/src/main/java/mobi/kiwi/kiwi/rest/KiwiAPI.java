@@ -16,7 +16,7 @@ public class KiwiAPI {
     private static final String TAG = KiwiAPI.class.getSimpleName();
 
     private static KiwiAPI sInstance = new KiwiAPI();
-    private KiwiAPI mService;
+    private KiwiService mService;
 
     private KiwiAPI() {
         OkHttpClient client = new OkHttpClient();
@@ -32,18 +32,18 @@ public class KiwiAPI {
                 .setClient(new OkClient(client))
                 .build();
 
-        mService = restAdapter.create(KiwiAPI.class);
+        mService = restAdapter.create(KiwiService.class);
     }
 
     public static KiwiAPI getInstance() {
         return sInstance;
     }
 
-    public void setService(KiwiAPI service) {
+    public void setService(KiwiService service) {
         mService = service;
     }
 
-    public KiwiAPI getService() {
+    public KiwiService getService() {
         return mService;
     }
 }

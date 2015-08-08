@@ -20,7 +20,6 @@ public class ConfigActivity extends KiwiActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
         initUI();
-        Log.e(TAG, Utils.getSHA256Hash("abc"));
     }
 
     public void onSaveConfig(View view) {
@@ -29,7 +28,7 @@ public class ConfigActivity extends KiwiActivity {
         String ssid = mSsidEditText.getText().toString();
 
         if (Utils.validateServerAddress(serverAddress)) {
-            PrefUtils.saveConfig(Constants.SERVER_ADDRESS, serverAddress);
+            PrefUtils.saveConfig(Constants.SERVER_ADDRESS, preProcessServerAddress(serverAddress));
         } else {
             toastMessage(getString(R.string.error_invalid_server_address));
         }
@@ -42,6 +41,14 @@ public class ConfigActivity extends KiwiActivity {
 
         // exit
         finish();
+    }
+
+    private String preProcessServerAddress(String serverAddress) {
+        if (serverAddress.startsWith(Constants.HTTP_PREFIX)) {
+            return serverAddress;
+        } else {
+            return Constants.HTTP_PREFIX + serverAddress;
+        }
     }
 
     private void initUI() {

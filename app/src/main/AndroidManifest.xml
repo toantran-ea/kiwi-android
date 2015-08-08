@@ -26,6 +26,11 @@
             android:name=".ConfigActivity"
             android:label="@string/title_activity_config" >
         </activity>
+        <receiver android:name=".receivers.WifiJoinReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
