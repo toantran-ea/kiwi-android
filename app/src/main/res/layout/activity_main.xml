@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity">
+
+    <TextView
+        android:textSize="@dimen/checkin_label_size"
+        android:id="@+id/last_checkin_label"
+        android:text="@string/text_last_checkin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginLeft="@dimen/last_checkin_left_margin"
+        android:layout_toRightOf="@id/last_checkin_label"
+        android:id="@+id/last_checkin_text_view"
+        android:layout_width="fill_parent"
+        android:textSize="@dimen/checkin_label_size"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:textSize="@dimen/checkin_button_text_size"
+        android:id="@+id/checkin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/text_check_in"/>
+
+</RelativeLayout>
