@@ -23,6 +23,10 @@ public class PrefUtils {
         return sSharedPreferences.getString(config, fallback);
     }
 
+    public static void reset() {
+        sSharedPreferences.edit().clear().commit();
+    }
+
     private static void checkState() {
         if(sSharedPreferences == null) {
             throw new IllegalStateException("PrefUtils is not initialized");

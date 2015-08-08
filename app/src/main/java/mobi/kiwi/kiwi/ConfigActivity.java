@@ -1,6 +1,7 @@
 package mobi.kiwi.kiwi;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ public class ConfigActivity extends KiwiActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
         initUI();
+        Log.e(TAG, Utils.getSHA256Hash("abc"));
     }
 
     public void onSaveConfig(View view) {
