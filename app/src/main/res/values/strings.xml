@@ -14,4 +14,6 @@
     <string name="server_prompt">192.168.4.44:3000</string>
     <string name="ssid_prompt">East Agile F1</string>
     <string name="error_check_in_failed">Failed to check in now</string>
+    <string name="error_no_checkin_server_found">"No checkin server found at "</string>
+    <string name="message_validating_server">Validating server ...</string>
 </resources>

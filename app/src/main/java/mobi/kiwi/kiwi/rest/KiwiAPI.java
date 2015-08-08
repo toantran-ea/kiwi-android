@@ -35,7 +35,16 @@ public class KiwiAPI {
         mService = restAdapter.create(KiwiService.class);
     }
 
+    public static KiwiAPI newInstance(KiwiService service ) {
+        KiwiAPI instance = new KiwiAPI();
+        instance.setService(service);
+        return instance;
+    }
+
     public static KiwiAPI getInstance() {
+        if(sInstance == null) {
+            sInstance = new KiwiAPI();
+        }
         return sInstance;
     }
 
@@ -45,5 +54,9 @@ public class KiwiAPI {
 
     public KiwiService getService() {
         return mService;
+    }
+
+    public static void reset() {
+        sInstance = null;
     }
 }
