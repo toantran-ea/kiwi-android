@@ -1,12 +1,20 @@
 package mobi.kiwi.kiwi;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends KiwiActivity {
+    private static String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +45,26 @@ public class MainActivity extends KiwiActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void checkin(View view) {
+        List<String> gmails = getAllGmails();
+        Log.e(TAG, gmails.toString());
+    }
+
     private void openConfig() {
         Intent intent = new Intent(this, ConfigActivity.class);
         startActivity(intent);
+    }
+
+    private List<String> getAllGmails() {
+        AccountManager manager = (AccountManager) getSystemService(ACCOUNT_SERVICE);
+        Account[] list = manager.getAccounts();
+        List<String> gmails = new ArrayList<>();
+
+        for (Account account : list) {
+            if (account.type.equalsIgnoreCase("com.google")) {
+                gmails.add(account.name);
+            }
+        }
+        return gmails;
     }
 }
