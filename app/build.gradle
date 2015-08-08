@@ -32,6 +32,7 @@ dependencies {
     compile 'com.squareup.retrofit:converter-jackson:1.9.0'
     compile 'com.squareup.retrofit:retrofit:1.9.0'
     compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.github.dmytrodanylyk.android-process-button:library:1.0.4'
     testCompile 'junit:junit:4.12'
     testCompile "org.mockito:mockito-core:1.9.5"
 }

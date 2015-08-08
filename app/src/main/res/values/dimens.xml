@@ -8,4 +8,5 @@
     <dimen name="input_section_margin_top">10dp</dimen>
     <dimen name="button_padding">10dp</dimen>
     <dimen name="button_save_margin_top">20dp</dimen>
+    <dimen name="checkin_padding_left_right">15dp</dimen>
 </resources>

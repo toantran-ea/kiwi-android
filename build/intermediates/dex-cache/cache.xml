@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/toan/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.4.0/ddd166d01b3158d1c00576d29f7ed15c030df719/eventbus-2.4.0.jar"
+        jar="/Users/toan/dev/code/Kiwi/app/build/intermediates/exploded-aar/com.github.dmytrodanylyk.android-process-button/library/1.0.4/jars/classes.jar"
         jumboMode="false"
         revision="23.0.0 rc2"
-        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
-        <dex dex="/Users/toan/dev/code/Kiwi/app/build/intermediates/pre-dexed/debug/eventbus-2.4.0-71ba03ba1fdd68e398cf42a45d1225583f1b91a7.jar" />
+        sha1="88ccdbf844995d5c9c845e087068d27588b2d026">
+        <dex dex="/Users/toan/dev/code/Kiwi/app/build/intermediates/pre-dexed/debug/classes-b8945ea6c2b65cfe3ab028486457d92f6d7905ed.jar" />
     </item>
 
 </items>
